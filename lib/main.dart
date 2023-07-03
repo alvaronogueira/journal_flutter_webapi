@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Simple Journal',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(),
+      theme: ThemeData(primarySwatch: Colors.grey),
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.light,
       initialRoute: "home",
