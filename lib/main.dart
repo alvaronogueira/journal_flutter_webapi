@@ -12,13 +12,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Simple Journal',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.grey,
-      appBarTheme: AppBarTheme(
-        backgroundColor: Colors.black,
-        titleTextStyle: TextStyle(
-          color: Colors.white,
-          )
-        ),
+      theme: ThemeData(
+        primarySwatch: Colors.grey,
+        appBarTheme: AppBarTheme(
+            backgroundColor: Colors.black,
+            titleTextStyle: TextStyle(
+              color: Colors.white,
+            )),
       ),
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.light,
