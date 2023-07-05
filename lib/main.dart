@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'screens/home_screen/home_screen.dart';
 
 void main() {
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
             color: Colors.white,
           ),
         ),
+        textTheme: GoogleFonts.bitterTextTheme(),
       ),
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.light,
