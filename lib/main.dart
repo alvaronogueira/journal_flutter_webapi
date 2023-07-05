@@ -14,11 +14,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.grey,
-        appBarTheme: AppBarTheme(
-            backgroundColor: Colors.black,
-            titleTextStyle: TextStyle(
-              color: Colors.white,
-            )),
+        appBarTheme: const AppBarTheme(
+          elevation: 0,
+          backgroundColor: Colors.black,
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+          ),
+        ),
       ),
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.light,
