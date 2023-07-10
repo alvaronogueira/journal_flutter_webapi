@@ -6,14 +6,18 @@ void main() {
   runApp(const MyApp());
 
   JournalService service = JournalService();
-  service.register("Olá mundo!");
+  service.register("Hello world!");
   service.get();
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
+    //JournalService service = JournalService(); // Mova a criação do JournalService para dentro do build
+    //service.register("Olá mundo!"); // Mova a chamada para dentro do build
+
     return MaterialApp(
       title: 'Simple Journal',
       debugShowCheckedModeBanner: false,
