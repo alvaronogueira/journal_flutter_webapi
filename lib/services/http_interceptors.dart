@@ -13,7 +13,8 @@ class LoggingInterceptor implements InterceptorContract {
 
   @override
   Future<ResponseData> interceptResponse({required ResponseData data}) async {
-    print(data.toString());
+    logger.i(
+        "Response to ${data.url}\nHeader: ${data.headers}\nBody: ${data.body}");
     return data;
   }
 }
