@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_webapi_first_course/models/journal.dart';
+import 'package:flutter_webapi_first_course/screens/add_journal_screen/add_journal_screen.dart';
 import 'package:flutter_webapi_first_course/services/journal_service.dart';
 import 'screens/home_screen/home_screen.dart';
 
@@ -12,7 +14,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     //JournalService service = JournalService(); // Mova a criação do JournalService para dentro do build
@@ -29,13 +31,21 @@ class MyApp extends StatelessWidget {
           titleTextStyle: TextStyle(
             color: Colors.white,
           ),
+          actionsIconTheme: IconThemeData(color: Colors.amber),
         ),
       ),
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.light,
-      initialRoute: "home",
+      initialRoute: "add-journal",
       routes: {
         "home": (context) => const HomeScreen(),
+        "add-journal": (context) => AddJournalScreen(
+              journal: Journal(
+                  id: "id",
+                  content: "content",
+                  createdAt: DateTime.now(),
+                  updatedAt: DateTime.now()),
+            ),
       },
     );
   }
