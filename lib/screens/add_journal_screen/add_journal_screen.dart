@@ -11,7 +11,7 @@ class AddJournalScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            "${WeekDay(journal.createdAt.weekday).long.toLowerCase()}, ${journal.createdAt.day}  |   ${journal.createdAt.month}  |   ${journal.createdAt.year}"),
+            "${WeekDay(journal.createdAt.weekday).long}, ${journal.createdAt.day}  |  ${journal.createdAt.month}  |  ${journal.createdAt.year}"),
         actions: [
           IconButton(
             onPressed: () {},
@@ -21,10 +21,11 @@ class AddJournalScreen extends StatelessWidget {
       ),
       body: TextField(
         keyboardType: TextInputType.multiline,
+        autofocus: true,
         style: TextStyle(fontSize: 24),
         expands: true,
-        minLines: null,
         maxLines: null,
+        minLines: null,
       ),
     );
   }
