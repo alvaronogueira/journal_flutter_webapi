@@ -17,9 +17,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //JournalService service = JournalService(); // Mova a criação do JournalService para dentro do build
-    //service.register("Olá mundo!"); // Mova a chamada para dentro do build
-
     return MaterialApp(
       title: 'Simple Journal',
       debugShowCheckedModeBanner: false,
@@ -36,7 +33,7 @@ class MyApp extends StatelessWidget {
       ),
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.light,
-      initialRoute: "add-journal",
+      initialRoute: "home",
       routes: {
         "home": (context) => const HomeScreen(),
         "add-journal": (context) => AddJournalScreen(

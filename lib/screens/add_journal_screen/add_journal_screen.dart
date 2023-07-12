@@ -19,13 +19,15 @@ class AddJournalScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: TextField(
-        keyboardType: TextInputType.multiline,
-        autofocus: true,
-        style: TextStyle(fontSize: 24),
-        expands: true,
-        maxLines: null,
-        minLines: null,
+      body: const Padding(
+        padding: EdgeInsets.all(8.0),
+        child: TextField(
+          keyboardType: TextInputType.multiline,
+          style: TextStyle(fontSize: 24),
+          expands: true,
+          maxLines: null,
+          minLines: null,
+        ),
       ),
     );
   }
