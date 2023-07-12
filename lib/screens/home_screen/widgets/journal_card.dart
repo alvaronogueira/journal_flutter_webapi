@@ -80,7 +80,7 @@ class JournalCard extends StatelessWidget {
     } else {
       return InkWell(
         onTap: () {
-          callAddJournalScreen();
+          callAddJournalScreen(context);
         },
         child: Container(
           height: 115,
@@ -95,7 +95,7 @@ class JournalCard extends StatelessWidget {
     }
   }
 
-  callAddJournalScreen() {
-    print("FUNCIONOU!");
+  callAddJournalScreen(BuildContext context) {
+    Navigator.pushNamed(context, 'add-journal');
   }
 }

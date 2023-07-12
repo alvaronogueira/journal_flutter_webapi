@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
             color: Colors.white,
           ),
           actionsIconTheme: IconThemeData(color: Colors.amber),
+          iconTheme: IconThemeData(color: Colors.amber),
         ),
       ),
       darkTheme: ThemeData.dark(),
