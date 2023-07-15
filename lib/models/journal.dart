@@ -14,23 +14,22 @@ class Journal {
   });
 
   Journal.empty()
-      : id = const Uuid().v1(),
+      : id = Uuid().v1(),
         content = "",
         createdAt = DateTime.now(),
         updatedAt = DateTime.now();
 
-  //Converting object in Json
-  Map<String, dynamic> toMap() {
-    return {
-      "id": id,
-      "content": content,
-      "created_at": createdAt.toString(),
-      "updated_at": updatedAt.toString(),
-    };
-  }
-
   @override
   String toString() {
     return "$content \ncreated_at: $createdAt\nupdated_at:$updatedAt";
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'content': content,
+      'created_at': createdAt.toString(),
+      'updated_at': updatedAt.toString()
+    };
   }
 }
