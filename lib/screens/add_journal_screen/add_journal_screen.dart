@@ -19,7 +19,6 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            // TODO: Modularizar isso no helper
             "${WeekDay(widget.journal.createdAt.weekday).long.toLowerCase()}, ${widget.journal.createdAt.day} do ${widget.journal.createdAt.month} de ${widget.journal.createdAt.year}"),
         actions: [
           IconButton(

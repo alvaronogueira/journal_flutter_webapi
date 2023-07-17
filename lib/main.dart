@@ -7,7 +7,6 @@ import 'screens/home_screen/home_screen.dart';
 void main() {
   runApp(const MyApp());
 
-  //TODO: Remover testes
   JournalService journalService = JournalService();
   journalService.register(Journal.empty());
   //journalService.get();
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: const AppBarTheme(
           elevation: 0,
           backgroundColor: Colors.black,
-          titleTextStyle: TextStyle(color: Colors.blueAccent),
+          titleTextStyle: TextStyle(color: Colors.white),
           actionsIconTheme: IconThemeData(color: Colors.amber),
           iconTheme: IconThemeData(color: Colors.amber),
         ),

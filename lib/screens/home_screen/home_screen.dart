@@ -12,7 +12,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // O último dia apresentado na lista
   DateTime currentDay = DateTime.now();
 
   // Tamanho da lista

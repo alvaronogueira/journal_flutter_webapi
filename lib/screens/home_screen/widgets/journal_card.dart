@@ -13,9 +13,7 @@ class JournalCard extends StatelessWidget {
   Widget build(BuildContext context) {
     if (journal != null) {
       return InkWell(
-        onTap: () {
-          //TODO: Implementar edição da entrada
-        },
+        onTap: () {},
         child: Container(
           height: 115,
           margin: const EdgeInsets.all(8),
@@ -83,7 +81,6 @@ class JournalCard extends StatelessWidget {
     } else {
       return InkWell(
         onTap: () {
-          //TODO: Modularizar operação
           Navigator.pushNamed(
             context,
             'add-journal',
@@ -97,13 +94,13 @@ class JournalCard extends StatelessWidget {
             if (value == true) {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
-                  content: Text("Registro salvo com sucesso."),
+                  content: Text("Register successfully saved."),
                 ),
               );
             } else {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
-                  content: Text("Houve uma falha ao registar."),
+                  content: Text("Failed to register."),
                 ),
               );
             }
