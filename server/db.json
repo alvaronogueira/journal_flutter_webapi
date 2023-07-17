@@ -74,6 +74,12 @@
       "content": "Para bailar la bamba",
       "created_at": "2023-07-13 18:37:20.030702",
       "updated_at": "2023-07-13 18:37:20.030702"
+    },
+    {
+      "id": "51bb0480-24dc-11ee-8f92-a1b4af78e9ec",
+      "content": "Today is day to test my mobile application.",
+      "created_at": "2023-07-13 19:57:19.039571",
+      "updated_at": "2023-07-13 19:57:19.039571"
     }
   ]
 }

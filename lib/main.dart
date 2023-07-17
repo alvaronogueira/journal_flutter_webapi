@@ -7,9 +7,10 @@ import 'screens/home_screen/home_screen.dart';
 void main() {
   runApp(const MyApp());
 
-  JournalService journalService = JournalService();
-  journalService.register(Journal.empty());
-  //journalService.get();
+  //TODO: Remover testes
+  JournalService service = JournalService();
+  //service.register(Journal.empty());
+  service.getAll();
 }
 
 class MyApp extends StatelessWidget {
