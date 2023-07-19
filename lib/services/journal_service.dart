@@ -1,8 +1,9 @@
 import 'dart:convert';
-import 'package:flutter_webapi_first_course/models/journal.dart';
+import '../models/journal.dart';
 import 'package:flutter_webapi_first_course/services/http_interceptors.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_interceptor/http/http.dart';
+
 
 class JournalService {
   static const String url = "http://192.168.3.14:3000/";
@@ -44,8 +45,6 @@ class JournalService {
     for (var jsonMap in listDynamic) {
       list.add(Journal.fromMap(jsonMap));
     }
-
-    print(list.length);
 
     return list;
   }
