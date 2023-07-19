@@ -7,7 +7,6 @@ import 'screens/home_screen/home_screen.dart';
 void main() {
   runApp(const MyApp());
 
-  //TODO: Remover testes
   JournalService service = JournalService();
   //service.register(Journal.empty());
   service.getAll();
@@ -27,7 +26,9 @@ class MyApp extends StatelessWidget {
         appBarTheme: const AppBarTheme(
           elevation: 0,
           backgroundColor: Colors.black,
-          titleTextStyle: TextStyle(color: Colors.white),
+          titleTextStyle: TextStyle(
+            color: Colors.white
+          ),
           actionsIconTheme: IconThemeData(color: Colors.amber),
           iconTheme: IconThemeData(color: Colors.amber),
         ),
@@ -36,9 +37,9 @@ class MyApp extends StatelessWidget {
       routes: {
         "home": (context) => const HomeScreen(),
       },
-      onGenerateRoute: (routeSettings) {
-        if (routeSettings.name == "add-journal") {
-          final journal = routeSettings.arguments as Journal;
+      onGenerateRoute: (settings) {
+        if (settings.name == "add-journal") {
+          final Journal journal = settings.arguments as Journal;
           return MaterialPageRoute(
             builder: (context) {
               return AddJournalScreen(journal: journal);
