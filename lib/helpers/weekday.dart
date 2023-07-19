@@ -1,10 +1,13 @@
-/// Gera dia da semana em português
-class WeekDay {
-  int weekday;
-  late String short;
-  late String long;
+//import 'dart:ffi';
 
-  WeekDay(this.weekday) {
+/// Weekdays in portuguese
+class WeekDay {
+  DateTime date;
+  late String short;
+  late String long; 
+
+  WeekDay(this.date) {
+    int weekday = date.weekday;
     switch (weekday) {
       case 7:
         short = "dom";
@@ -35,5 +38,10 @@ class WeekDay {
         long = "Sábado";
         break;
     }
+  }
+
+  @override
+  String toString() {
+    return "${long.toLowerCase()}, ${date.day}  |  ${date.month}  |  ${date.year}";
   }
 }
