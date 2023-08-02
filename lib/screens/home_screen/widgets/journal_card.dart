@@ -11,15 +11,15 @@ class JournalCard extends StatelessWidget {
       {Key? key,
       this.journal,
       required this.showedDate,
-      required this.refreshFunction
-    }) : super(key: key);
+      required this.refreshFunction})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     if (journal != null) {
       return InkWell(
         onTap: () {
-          //
+          callAddJournalScreen(context);
         },
         child: Container(
           height: 115,
@@ -125,5 +125,26 @@ class JournalCard extends StatelessWidget {
         ),
       );
     }
+  }
+
+  callAddJournalScreen(BuildContext context, {Journal? journal}) {
+    Navigator.pushNamed(
+      context,
+      'add-jounal',
+      arguments: Journal(
+        id: const Uuid().v1(),
+        content: "",
+        createdAt: showedDate,
+        updatedAt: showedDate,
+      ),
+    ).then((value) {
+      if (value != null && value == true) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Register successfully saved"),
+          ),
+        );
+      }
+    });
   }
 }
