@@ -2,12 +2,18 @@
   "learnhttp": {
     "content": "Olá mundo!"
   },
-  "Journals": [
+  "journals": [
     {
-      "id": "cb4fb4d0-312a-11ee-9b80-b92d69f17820",
-      "content": "Saving",
-      "created_at": "2023-07-28 11:50:19.084569",
-      "updated_at": "2023-07-28 11:50:19.084569"
+      "id": "54900af0-3168-11ee-829f-51bc6b29afae",
+      "content": "Building applications.",
+      "created_at": "2023-07-27 19:10:48.854520",
+      "updated_at": "2023-07-27 19:10:48.854520"
+    },
+    {
+      "id": "56072fb0-316a-11ee-829f-51bc6b29afae",
+      "content": "Today is a great day to study Flutter.",
+      "created_at": "2023-07-24 19:10:48.854520",
+      "updated_at": "2023-07-24 19:10:48.854520"
     }
   ]
 }
