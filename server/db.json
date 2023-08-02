@@ -2,84 +2,12 @@
   "learnhttp": {
     "content": "Olá mundo!"
   },
-  "journals": [
+  "Journals": [
     {
-      "id": "44597c10-2313-11ee-8caa-5bd94843f819",
-      "content": "",
-      "created_at": "2023-07-15 13:26:55.321716",
-      "updated_at": "2023-07-15 13:26:55.321736"
-    },
-    {
-      "id": "5eb64b60-2313-11ee-9126-ed204541cc69",
-      "content": "",
-      "created_at": "2023-07-15 13:27:39.551621",
-      "updated_at": "2023-07-15 13:27:39.551636"
-    },
-    {
-      "id": "89520600-231a-11ee-8370-b3c0231134c9",
-      "content": "",
-      "created_at": "2023-07-15 14:18:57.514332",
-      "updated_at": "2023-07-15 14:18:57.514444"
-    },
-    {
-      "id": "9290d070-231a-11ee-a3d8-a9397e49880b",
-      "content": "auhsuahsuasa",
-      "created_at": "2023-07-13 14:18:58.749928",
-      "updated_at": "2023-07-13 14:18:58.749928"
-    },
-    {
-      "id": "394ed1a0-231b-11ee-8cbd-330575e4ddcd",
-      "content": "",
-      "created_at": "2023-07-15 14:23:52.773261",
-      "updated_at": "2023-07-15 14:23:52.773282"
-    },
-    {
-      "id": "43e53cd0-231b-11ee-81c1-25336d5f391c",
-      "content": "Testing my application.",
-      "created_at": "2023-07-08 14:23:53.953044",
-      "updated_at": "2023-07-08 14:23:53.953044"
-    },
-    {
-      "id": "a1355460-231b-11ee-8828-1342b6409df4",
-      "content": "",
-      "created_at": "2023-07-15 14:26:47.085794",
-      "updated_at": "2023-07-15 14:26:47.086017"
-    },
-    {
-      "id": "65c0abe0-24cf-11ee-8a70-9903e2906c17",
-      "content": "",
-      "created_at": "2023-07-17 18:26:07.914346",
-      "updated_at": "2023-07-17 18:26:07.914439"
-    },
-    {
-      "id": "e138d620-24d0-11ee-8858-df3f239789f3",
-      "content": "",
-      "created_at": "2023-07-17 18:36:44.555463",
-      "updated_at": "2023-07-17 18:36:44.555568"
-    },
-    {
-      "id": "f5a78ca0-24d0-11ee-b32a-172aafb82a74",
-      "content": "",
-      "created_at": "2023-07-17 18:37:18.835878",
-      "updated_at": "2023-07-17 18:37:18.835980"
-    },
-    {
-      "id": "53081790-24d4-11ee-b32a-172aafb82a74",
-      "content": "Its a lonely day, and its is mine.",
-      "created_at": "2023-07-13 18:37:20.030702",
-      "updated_at": "2023-07-13 18:37:20.030702"
-    },
-    {
-      "id": "68d350d0-24d4-11ee-b32a-172aafb82a74",
-      "content": "Para bailar la bamba",
-      "created_at": "2023-07-13 18:37:20.030702",
-      "updated_at": "2023-07-13 18:37:20.030702"
-    },
-    {
-      "id": "51bb0480-24dc-11ee-8f92-a1b4af78e9ec",
-      "content": "Today is day to test my mobile application.",
-      "created_at": "2023-07-13 19:57:19.039571",
-      "updated_at": "2023-07-13 19:57:19.039571"
+      "id": "cb4fb4d0-312a-11ee-9b80-b92d69f17820",
+      "content": "Saving",
+      "created_at": "2023-07-28 11:50:19.084569",
+      "updated_at": "2023-07-28 11:50:19.084569"
     }
   ]
 }
