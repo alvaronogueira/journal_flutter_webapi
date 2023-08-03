@@ -49,12 +49,27 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
   }
 
   registerJournal(BuildContext context) {
-    JournalService journalService = JournalService();
+    String content = contentController.text;
+
+    widget.journal.content = content;
+
+    JournalService service = JournalService();
+    if (widget.isEditing) {
+      service.register(widget.journal).then((value) {
+        Navigator.pop(context, value);
+      });
+    } else {
+      service.edit(widget.journal.id, widget.journal).then((value) {
+        Navigator.pop(context, value);
+      });
+    }
+  }
+
+  /*JournalService journalService = JournalService();
 
     widget.journal.content = contentController.text;
 
     journalService.register(widget.journal).then((value) {
       Navigator.pop(context, value);
-    });
-  }
+    });*/
 }
