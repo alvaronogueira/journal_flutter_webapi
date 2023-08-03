@@ -32,6 +32,18 @@
       "content": "Card refresed automatically.",
       "created_at": "2023-07-16 16:27:24.969319",
       "updated_at": "2023-07-16 16:27:24.969319"
+    },
+    {
+      "id": "033cbe60-3202-11ee-a7f3-21904c1f734c",
+      "content": "Building an application.",
+      "created_at": "2023-08-01 20:20:48.735648",
+      "updated_at": "2023-08-01 20:20:48.735648"
+    },
+    {
+      "id": "ef7c7d10-3211-11ee-a389-e5877920eb0e",
+      "content": "It is amazing when our code is working!",
+      "created_at": "2023-07-29 15:24:56.466026",
+      "updated_at": "2023-07-29 15:24:56.466026"
     }
   ]
 }
