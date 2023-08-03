@@ -6,20 +6,21 @@ import 'package:uuid/uuid.dart';
 class JournalCard extends StatelessWidget {
   final Journal? journal;
   final DateTime showedDate;
-  final Function refreshFunction;
-  const JournalCard(
-      {Key? key,
-      this.journal,
-      required this.showedDate,
-      required this.refreshFunction})
-      : super(key: key);
+  final Function refreshFunction; // Adicionando o parâmetro refreshFunction
+  const JournalCard({
+    Key? key,
+    this.journal,
+    required this.showedDate,
+    required this.refreshFunction,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     if (journal != null) {
       return InkWell(
         onTap: () {
-          callAddJournalScreen(context);
+          callAddJournalScreen(context, journal: journal);
+          //Put enter's edition
         },
         child: Container(
           height: 115,
@@ -88,31 +89,7 @@ class JournalCard extends StatelessWidget {
     } else {
       return InkWell(
         onTap: () {
-          Navigator.pushNamed(
-            context,
-            'add-journal',
-            arguments: Journal(
-              id: const Uuid().v1(),
-              content: "",
-              createdAt: showedDate,
-              updatedAt: showedDate,
-            ),
-          ).then((value) {
-            refreshFunction();
-            if (value == true) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text("Register successfully saved."),
-                ),
-              );
-            } else {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text("Failed to register."),
-                ),
-              );
-            }
-          });
+          callAddJournalScreen(context);
         },
         child: Container(
           height: 115,
@@ -128,20 +105,33 @@ class JournalCard extends StatelessWidget {
   }
 
   callAddJournalScreen(BuildContext context, {Journal? journal}) {
+    Journal innerJournal = Journal(
+      id: const Uuid().v1(),
+      content: "",
+      createdAt: showedDate,
+      updatedAt: showedDate,
+    );
+
+    if (journal != null) {
+      innerJournal = journal;
+    }
+
     Navigator.pushNamed(
       context,
-      'add-jounal',
-      arguments: Journal(
-        id: const Uuid().v1(),
-        content: "",
-        createdAt: showedDate,
-        updatedAt: showedDate,
-      ),
+      'add-journal',
+      arguments: innerJournal,
     ).then((value) {
+      refreshFunction(); // Chamando a função refreshFunction
       if (value != null && value == true) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text("Register successfully saved"),
+          ),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Failed to register"),
           ),
         );
       }

@@ -12,10 +12,11 @@ class AddJournalScreen extends StatefulWidget {
 }
 
 class _AddJournalScreenState extends State<AddJournalScreen> {
-  TextEditingController contentController = TextEditingController();
+  final TextEditingController contentController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    contentController.text = widget.journal.content;
     return Scaffold(
       appBar: AppBar(
         title: Text(WeekDay(widget.journal.createdAt).toString()),
