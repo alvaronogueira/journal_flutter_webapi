@@ -14,10 +14,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   DateTime currentDay = DateTime.now();
 
-  // Tamanho da lista
+  // Length list
   int windowPage = 10;
 
-  // A base de dados mostrada na lista
+  // Database showed on List
   Map<String, Journal> database = {};
 
   final ScrollController _listScrollController = ScrollController();
@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // Título basado no dia atual
+        // Current day's title
         title: Text(
           "${currentDay.day}  |  ${currentDay.month}  |  ${currentDay.year}",
         ),
