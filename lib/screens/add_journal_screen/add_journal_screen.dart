@@ -3,28 +3,24 @@ import 'package:flutter_webapi_first_course/helpers/weekday.dart';
 import 'package:flutter_webapi_first_course/models/journal.dart';
 import 'package:flutter_webapi_first_course/services/journal_service.dart';
 
-class AddJournalScreen extends StatefulWidget {
+class AddJournalScreen extends StatelessWidget {
   final Journal journal;
   final bool isEditing;
-  const AddJournalScreen({
+  
+  AddJournalScreen({ 
     Key? key,
     required this.journal,
     required this.isEditing,
   }) : super(key: key);
 
-  @override
-  State<AddJournalScreen> createState() => _AddJournalScreenState();
-}
-
-class _AddJournalScreenState extends State<AddJournalScreen> {
-  final TextEditingController contentController = TextEditingController();
+    final TextEditingController contentController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    contentController.text = widget.journal.content;
+    contentController.text = journal.content;
     return Scaffold(
       appBar: AppBar(
-        title: Text(WeekDay(widget.journal.createdAt).toString()),
+        title: Text(WeekDay(journal.createdAt).toString()),
         actions: [
           IconButton(
             onPressed: () {
@@ -48,28 +44,21 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
     );
   }
 
-  registerJournal(BuildContext context) {
+  void registerJournal(BuildContext context) {
     String content = contentController.text;
 
-    widget.journal.content = content;
+    journal.content = content;
 
     JournalService service = JournalService();
-    if (widget.isEditing) {
-      service.register(widget.journal).then((value) {
+    if (isEditing) {
+      service.register(journal).then((value) {
         Navigator.pop(context, value);
       });
     } else {
-      service.edit(widget.journal.id, widget.journal).then((value) {
+      service.edit(journal.id, journal).then((value) {
         Navigator.pop(context, value);
       });
     }
   }
-
-  /*JournalService journalService = JournalService();
-
-    widget.journal.content = contentController.text;
-
-    journalService.register(widget.journal).then((value) {
-      Navigator.pop(context, value);
-    });*/
 }
+

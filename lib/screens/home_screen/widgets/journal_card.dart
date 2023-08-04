@@ -113,6 +113,7 @@ class JournalCard extends StatelessWidget {
     );
 
     Map<String, dynamic> map = {};
+    
     if (journal != null) {
       innerJournal = journal;
       map['is_editing'] = false;
