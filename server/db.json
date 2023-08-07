@@ -1,5 +1,11 @@
 {
-  "users" : [],
+  "users": [
+    {
+      "email": "flutter@vscode.com",
+      "password": "$2a$10$Mc50WaUVaZ9.WXsHls9o.e7Xv1mxEtwISFsgpp4d60Pg0CPoGGsjS",
+      "id": 1
+    }
+  ],
   "learnhttp": {
     "content": "Olá mundo!"
   },
