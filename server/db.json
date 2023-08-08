@@ -4,6 +4,16 @@
       "email": "flutter@vscode.com",
       "password": "$2a$10$Mc50WaUVaZ9.WXsHls9o.e7Xv1mxEtwISFsgpp4d60Pg0CPoGGsjS",
       "id": 1
+    },
+    {
+      "email": "flutter2@vscode.com",
+      "password": "$2a$10$XczneqUNwPgOiYhdeEjtuONbK.xXnVK1EfZSaV29ca54DmI1NHTnu",
+      "id": 2
+    },
+    {
+      "email": "post@flutter.com",
+      "password": "$2a$10$4XdGT6pbuMimNBKX90YqE.9xZKkyOtxQ/f49c51NnxOmP/L19XZPq",
+      "id": 3
     }
   ],
   "learnhttp": {
