@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_webapi_first_course/screens/commom/confirmation_dialog.dart';
+import 'package:flutter_webapi_first_course/services/auth_service.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  LoginScreen({Key? key}) : super(key: key);
+
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passController = TextEditingController();
+
+  AuthService service = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -26,27 +33,32 @@ class LoginScreen extends StatelessWidget {
                     "Simple Journal",
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
-                  const Text("por Alura",
+                  const Text("by DevAlvaro",
                       style: TextStyle(fontStyle: FontStyle.italic)),
                   const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Divider(thickness: 2),
                   ),
-                  const Text("Entre ou Registre-se"),
+                  const Text("Sign In  or  Sign Up"),
                   TextFormField(
+                    controller: _emailController,
                     decoration: const InputDecoration(
-                      label: Text("E-mail"),
+                      label: Text("Email"),
                     ),
                     keyboardType: TextInputType.emailAddress,
                   ),
                   TextFormField(
-                    decoration: const InputDecoration(label: Text("Senha")),
+                    controller: _passController,
+                    decoration: const InputDecoration(label: Text("Password")),
                     keyboardType: TextInputType.visiblePassword,
                     maxLength: 16,
                     obscureText: true,
                   ),
                   ElevatedButton(
-                      onPressed: () {}, child: const Text("Continuar")),
+                      onPressed: () {
+                        login(context);
+                      },
+                      child: const Text("Continue")),
                 ],
               ),
             ),
@@ -54,5 +66,25 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  login(BuildContext context) async {
+    String email = _emailController.text;
+    String password = _passController.text;
+
+    try {
+      bool result = await service.login(email: email, password: password);
+    } on UserNotFindException {
+      showConfirmationDialog(
+        context,
+        content:
+            "Would like create a new user using the email $email and inserted password?",
+        affirmativeOption: "CREATE",
+      ).then((value) {
+        if (value != null && value) {
+          service.register(email: email, password: password);
+        }
+      });
+    }
   }
 }
