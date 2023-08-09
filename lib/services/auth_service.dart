@@ -48,6 +48,8 @@ class AuthService {
     return true;
   }
 
+  
+
   saveUserInfos(String body) async {
     Map<String, dynamic> map = json.decode(body);
 
@@ -64,6 +66,13 @@ class AuthService {
 
     String? savedToken = prefs.getString("accesToken");
     print(savedToken);
+  }
+
+  deleteUserInfos() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove("accessToken");
+    prefs.remove("id");
+    prefs.remove("email");
   }
 }
 
