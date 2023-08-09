@@ -14,6 +14,11 @@
       "email": "post@flutter.com",
       "password": "$2a$10$4XdGT6pbuMimNBKX90YqE.9xZKkyOtxQ/f49c51NnxOmP/L19XZPq",
       "id": 3
+    },
+    {
+      "email": "dart@flutter.com",
+      "password": "$2a$10$9g1CGU1/Sbco1bjoNr9SYuohrcEg.Kb4sK.lhgIe01TODNsv7xL.u",
+      "id": 4
     }
   ],
   "learnhttp": {
