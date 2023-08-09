@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 showExceptionDialog(
   BuildContext context, {
   required String content,
-  String title = "Um problema aconteceu",
+  String title = "Happened a problem",
 }) {
   return showDialog(
     context: context,
