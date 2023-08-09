@@ -33,6 +33,20 @@
       "created_at": "2023-07-31 19:10:48.854520",
       "updated_at": "2023-07-31 19:10:48.854520",
       "userId": 2
+    },
+    {
+      "id": "94967e20-36e7-11ee-b1b5-e911ac3999b5",
+      "content": "Yeah! This applications works!",
+      "created_at": "2023-08-08 19:04:22.975888",
+      "updated_at": "2023-08-08 19:04:22.975888",
+      "userId": 2
+    },
+    {
+      "id": "c1de4a20-36e7-11ee-b1b5-e911ac3999b5",
+      "content": "This user is authenticated.",
+      "created_at": "2023-08-07 19:05:31.451116",
+      "updated_at": "2023-08-07 19:05:31.451116",
+      "userId": 1
     }
   ]
 }
