@@ -52,6 +52,18 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
+      drawer: Drawer(
+          child: ListView(
+        children: [
+          ListTile(
+            onTap: () {
+              logout();
+            },
+            title: const Text("Logout"),
+            leading: const Icon(Icons.logout),
+          )
+        ],
+      )),
       body: (userId != null && userToken != null)
           ? ListView(
               controller: _listScrollController,
@@ -95,6 +107,13 @@ class _HomeScreenState extends State<HomeScreen> {
       } else {
         Navigator.pushReplacementNamed(context, "login");
       }
+    });
+  }
+
+  logout() {
+    SharedPreferences.getInstance().then((prefs) {
+      prefs.clear();
+      Navigator.pushReplacementNamed(context, "login");
     });
   }
 }
