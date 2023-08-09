@@ -8,7 +8,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'http_interceptors.dart';
 
 class AuthService {
-  //TODO: Modul endpoint
   static const String url = "http://192.168.3.4:3000/";
 
   http.Client client =
