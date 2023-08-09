@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'package:flutter_webapi_first_course/services/auth_service.dart';
+
 import '../models/journal.dart';
 import 'package:flutter_webapi_first_course/services/http_interceptors.dart';
 import 'package:http/http.dart' as http;
@@ -15,12 +17,15 @@ class JournalService {
     return "$url$resource";
   }
 
-  Future<bool> register(Journal journal) async {
+  Future<bool> register(Journal journal, String token) async {
     String jsonJournal = json.encode(journal.toMap());
 
     http.Response response = await client.post(
       Uri.parse(getUrl()),
-      headers: {'Content-type': 'application/json'},
+      headers: {
+        'Content-type': 'application/json',
+        "Authorization": "Bearer $token",
+      },
       body: jsonJournal,
     );
 
@@ -31,12 +36,15 @@ class JournalService {
     return false;
   }
 
-  Future<bool> edit(String id, Journal journal) async {
+  Future<bool> edit(String id, Journal journal, String token) async {
     String jsonJournal = json.encode(journal.toMap());
 
     http.Response response = await client.put(
       Uri.parse("${getUrl()}$id"),
-      headers: {'Content-type': 'application/json'},
+      headers: {
+        'Content-type': 'application/json',
+        "Authorization": "Bearer $token",
+      },
       body: jsonJournal,
     );
 
@@ -50,12 +58,18 @@ class JournalService {
   Future<List<Journal>> getAll(
       {required String id, required String token}) async {
     http.Response response = await client.get(
-        Uri.parse("${url}users/$id/journals"),
-        headers: {"Authorization": "Bearer $token"});
+      Uri.parse("${url}users/$id/journals"),
+      headers: {"Authorization": "Bearer $token"},
+    );
 
     if (response.statusCode != 200) {
       throw Exception();
     }
+
+    /*if (response.body.contains("jwt expired")) {
+      AuthService authService = AuthService();
+      authService.deleteUserInfos();
+    }*/
 
     List<Journal> list = [];
 

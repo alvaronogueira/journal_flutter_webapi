@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_webapi_first_course/helpers/weekday.dart';
 import 'package:flutter_webapi_first_course/models/journal.dart';
 import 'package:flutter_webapi_first_course/services/journal_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AddJournalScreen extends StatelessWidget {
   final Journal journal;
   final bool isEditing;
-  
-  AddJournalScreen({ 
+
+  AddJournalScreen({
     Key? key,
     required this.journal,
     required this.isEditing,
   }) : super(key: key);
 
-    final TextEditingController contentController = TextEditingController();
+  final TextEditingController contentController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -45,20 +46,24 @@ class AddJournalScreen extends StatelessWidget {
   }
 
   void registerJournal(BuildContext context) {
-    String content = contentController.text;
+    SharedPreferences.getInstance().then((prefs) {
+      String? token = prefs.getString("accessToken");
+      if (token != null) {
+        String content = contentController.text;
 
-    journal.content = content;
+        journal.content = content;
 
-    JournalService service = JournalService();
-    if (isEditing) {
-      service.register(journal).then((value) {
-        Navigator.pop(context, value);
-      });
-    } else {
-      service.edit(journal.id, journal).then((value) {
-        Navigator.pop(context, value);
-      });
-    }
+        JournalService service = JournalService();
+        if (isEditing) {
+          service.register(journal, token).then((value) {
+            Navigator.pop(context, value);
+          });
+        } else {
+          service.edit(journal.id, journal, token).then((value) {
+            Navigator.pop(context, value);
+          });
+        }
+      }
+    });
   }
 }
-
