@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:flutter_webapi_first_course/services/auth_service.dart';
 
 import '../models/journal.dart';
@@ -29,11 +30,15 @@ class JournalService {
       body: jsonJournal,
     );
 
-    if (response.statusCode == 201) {
-      return true;
+    if (response.statusCode != 201) {
+      if (json.decode(response.body) == "jwt expired") {
+        throw TokenNotValidException();
+      }
+
+      throw HttpException(response.body);
     }
 
-    return false;
+    return true;
   }
 
   Future<bool> edit(String id, Journal journal, String token) async {
@@ -48,11 +53,17 @@ class JournalService {
       body: jsonJournal,
     );
 
-    if (response.statusCode == 200) {
-      return true;
+    if (response.statusCode != 200) {
+      if (response.statusCode != 201) {
+        if (json.decode(response.body) == "jwt expired") {
+          throw TokenNotValidException();
+        }
+
+        throw HttpException(response.body);
+      }
     }
 
-    return false;
+    return true;
   }
 
   Future<List<Journal>> getAll(
@@ -63,13 +74,14 @@ class JournalService {
     );
 
     if (response.statusCode != 200) {
-      throw Exception();
-    }
+      if (response.statusCode != 201) {
+        if (json.decode(response.body) == "jwt expired") {
+          throw TokenNotValidException();
+        }
 
-    /*if (response.body.contains("jwt expired")) {
-      AuthService authService = AuthService();
-      authService.deleteUserInfos();
-    }*/
+        throw HttpException(response.body);
+      }
+    }
 
     List<Journal> list = [];
 
@@ -89,10 +101,18 @@ class JournalService {
     );
     http.delete(Uri.parse("${getUrl()}$id"));
 
-    if (response.statusCode == 200) {
-      return true;
+    if (response.statusCode != 200) {
+      if (response.statusCode != 201) {
+        if (json.decode(response.body) == "jwt expired") {
+          throw TokenNotValidException();
+        }
+
+        throw HttpException(response.body);
+      }
     }
 
-    return false;
+    return true;
   }
 }
+
+class TokenNotValidException implements Exception {}
