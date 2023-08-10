@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ class LoginScreen extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
 
-  AuthService service = AuthService();
+  final AuthService service = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -104,6 +105,12 @@ class LoginScreen extends StatelessWidget {
           });
         }
       });
-    }, test: (error) => error is UserNotFindException);
+    }, test: (error) => error is UserNotFindException).catchError(
+      (error) {
+        showExceptionDialog(context,
+            content: "Server does not respond. Try later.");
+      },
+      test: (error) => error is TimeoutException,
+    );
   }
 }
